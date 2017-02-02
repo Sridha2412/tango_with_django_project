@@ -37,7 +37,7 @@ def populate():
 			
 	
 	for cat, cat_data in cats.items():
-		c = add_cat(cat)
+		c = add_cat(cat, cat_data["views"], cat_data["likes"])
 		for p in cat_data["pages"]:
 			add_page(c, p["title"], p["url"])
 			
