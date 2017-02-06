@@ -16,4 +16,8 @@
 	<br />
 	<input type="submit" value="submit" />
 </form>
+
+{% if badlogin %}
+	<br><strong>{{ badlogin }}</strong><br />
+{% endif %}
 {% endblock %}

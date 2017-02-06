@@ -122,13 +122,13 @@ def register(request):
 
 
 def user_login(request):
+		context_dict ={'badlogin': "invalid username or password"}			
         if request.method == 'POST':
                 username = request.POST.get('username')
                 password = request.POST.get('password')
 
                 user = authenticate(username=username, password=password)
-
-                if user:
+				if user:
                         if user.is_active:
                                 login(request, user)
                                 return HttpResponseRedirect(reverse('index'))
@@ -137,7 +137,7 @@ def user_login(request):
 
                 else:
                         print("invalid login details: {0}, {1}".format(username, password))
-                        return HttpResponse("Invalid login details supplied.")
+                        return render(request, 'rango/login.html', context_dict)
 
         else:
                 return render(request, 'rango/login.html', {})
