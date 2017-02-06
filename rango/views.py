@@ -122,7 +122,7 @@ def register(request):
 
 
 def user_login(request):
-		context_dict ={'badlogin': "invalid username or password"}			
+	context_dict ={'badlogin': "Invalid username or password"}			
         if request.method == 'POST':
                 username = request.POST.get('username')
                 password = request.POST.get('password')
